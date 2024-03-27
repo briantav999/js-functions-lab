@@ -104,9 +104,15 @@ Define a function called longestStringInArray. It should accept an array of stri
 Complete Exercise 7 in the space below:
 */
 function longestStringInArray(arr) {
-    return arr.reduce((maxLength, currentString) => Math.max(maxLength, currentString.length), 0);
+  let maxLength = 0
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].length > maxLength) {
+      maxLength = arr[i].length;
+    }
+  }
+   return maxLength; 
 }
-console.log('Exercise 7 Result:', longestStringInArray(["Batman", "Superman", "Wonder", "flash"]));
+console.log('Exercise 7 Result:' ,longestStringInArray(["orange", "blue", "yellow"]))
 
 /*
 Exercise 8: stringsLongerThan
@@ -117,10 +123,16 @@ Complete Exercise 8 in the space below:
 */
 
 function stringsLongerThan(arr, length) {
-    return arr.filter(str => str.length > length);
-}
-console.log('Exercise 8 Result:', stringsLongerThan(['egregious', 'general', 'aviation', 'lost', 'time'], 3));
-
+  const result = []; //initializing an empty array 
+  for (let i = 0; i < arr.length; i++) {
+      if (arr[i].length > length) {
+          result.push(arr[i]);
+        }
+      }
+      return result;
+    }
+    console.log(stringsLongerThan(['say', 'hello', 'in', 'the', 'morning'], 3)); // Output: ['hello', 'morning']
+    console.log(stringsLongerThan(['say', 'hello', 'in', 'the', 'morning'], 9)); // Output: ['hello', 'morning']
 /*
 Exercise 9: numArgs
 
